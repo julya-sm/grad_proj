@@ -1,0 +1,53 @@
+{% load static %}
+
+<header class="header">
+	  <div class="header__wrapper container">
+		  <a href="/" class="header__logo">
+			  <img
+				  src="{% static 'images/logo.png' %}"
+				  width={60}
+				  height={60}
+				  alt="Логотип"
+			  />
+		  </a>
+
+		  <div class="header__middle">
+			  <div class="header__search">
+				  <label>
+					  <input
+						  type="text"
+						  placeholder="Поиск"
+					  />
+				  </label>
+			  </div>
+		  </div>
+
+		  <div class="header__nav">
+			  <div class="header__nav-item">
+				  <button
+						  class="header__nav-btn"
+						  type="button"
+				  >
+					  Войти
+				  </button>
+			  </div>
+			  <div class="header__nav-item">
+				  <button
+					  type="button"
+					  class="header__nav-btn"
+				  >
+					  Выйти
+				  </button>
+			  </div>
+			  <div class="header__nav-item">
+				  <a
+					  class="button"
+					  href="/write"
+				  >
+					  Добавить статью
+				  </a>
+			  </div>
+		  </div>
+	  </div>
+
+  </header>

@@ -1,11 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
 from .models import *
-
-# menu = [
-#     {'title': 'Добавить статью', 'url_name': 'index'},
-#     {'title': 'Войти', 'url_name': 'index'},
-# ]
 
 
 class BlogHome(ListView):
@@ -17,3 +12,16 @@ class BlogHome(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Главная страница'
         return context
+
+
+class ShowPost(DetailView):
+    model = Blog
+    template_name = 'blog/post.html'
+    slug_url_kwarg = 'post_slug'
+    context_object_name = 'post'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = context['post']
+        return context
+

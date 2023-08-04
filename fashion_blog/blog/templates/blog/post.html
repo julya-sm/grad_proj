@@ -1,0 +1,83 @@
+{% extends 'blog/base.html' %}
+{% load static%}
+{% block content %}
+
+	  <main class="main">
+
+	  <div class="container">
+		  <div class="main__wrapper">
+
+			  <div class="main__content">
+				  <div class="page-article">
+					  <div class="page-article__wrapper">
+						  <h1>Заголовок</h1>
+						  <p>Текст тут</p>
+						  <img src="https://storage.theoryandpractice.ru/tnp/uploads/image_block/000/052/014/image/base_d9dd9b626f.jpg" alt="Фото" width="704" loading="lazy" />
+
+						  <h2>Заголовок 2 ур</h2>
+						  <p>Текст тут 2</p>
+					  </div>
+				  </div>
+			  </div>
+
+			  <div class="sidebar">
+				  <div class="categories">
+					  <ul class="categories__list">
+						  <li class="categories__item">
+							  <a href="/">Все статьи</a>
+						  </li>
+						  <li class="categories__item">
+							  <a href="/">История моды</a>
+						  </li>
+						  <li class="categories__item">
+							  <a href="/">Тренды года</a>
+						  </li>
+					  </ul>
+				  </div>
+			  </div>
+		  </div>
+	  </div>
+  </main>
+
+	  <div class="modal">  <!-- modal__open добавить класс, чтобы увидеть модалку-->
+		  <div class="modal__container">
+			  <button type="button" class="modal__close">
+				  <svg width="14" height="14" viewBox="0 0 14 14">
+					  <path d="M14 1.415L12.585 0L7 5.585L1.415 0L0 1.415L5.585 7L0 12.585L1.415 14L7 8.415L12.585 14L14 12.585L8.415 7L14 1.415Z" fill="#3E3C38"/>
+				  </svg>
+			  </button>
+
+			  <div class="modal__title">Авторизация</div>
+			  <p class="modal__top-text">какой-то текст (может не быть)</p>
+
+			  <div class="modal__body">
+				  <form class="modal__form">
+					  <div class="modal__inputs">
+						  <label>
+							  <input
+								  class="input"
+								  type="text"
+								  id="login"
+								  placeholder="Введите логин"
+								  required
+							  >
+						  </label>
+						  <label>
+							  <input
+								  type="password"
+								  id="password"
+								  placeholder="Введите пароль"
+								  required
+							  >
+						  </label>
+					  </div>
+					  <button class="button button--dark" type="submit">Войти</Button>
+				  </form>
+			  </div>
+		  </div>
+		  <div class="modal__overlay"></div>
+	  </div>
+
+    <script type="module" src="/main.js"></script>
+
+{% endblock %}

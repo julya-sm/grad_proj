@@ -1,4 +1,5 @@
 {% extends 'blog/base.html' %}
+{% load static%}
 {% block content %}
 
 <main class="main">
@@ -9,13 +10,14 @@
 			<div class="main__content">
 				<div class="articles">
 					<ul class="articles__list">
+						{% for p in posts %}
 						<li>
 							<div class="article">
 								<div class="article__main">
 									<div class="article__left">
 										<div class="article__top">
 											<a href="/" class="article__title">
-												title
+												{{ p.title }}
 											</a>
 											<div class="views">
 												<svg width="16" height="16" viewBox="0 0 16 16">
@@ -35,17 +37,17 @@
 										</div>
 										<div class="article__text">
 											<p>
-												text
+												{{ p.content }}
 											</p>
 										</div>
 									</div>
 
 									<div class="article__right">
 										<img
-												src="/images/logo.png"
+												src="{% static 'images/history.png' %}"
 												width={112}
 												height={112}
-												alt="Тема статьи"
+												alt="История моды"
 										/>
 									</div>
 								</div>
@@ -58,6 +60,7 @@
 								</div>
 							</div>
 						</li>
+						{% endfor %}
 					</ul>
 				</div>
 			</div>

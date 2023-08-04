@@ -15,10 +15,10 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-    # class Meta:
-    #     verbose_name = 'Пост'
-    #     verbose_name_plural = 'Посты'
-    #     ordering = ['-time_created']
+    class Meta:
+        verbose_name = 'Пост'
+        verbose_name_plural = 'Посты'
+        ordering = ['-time_created']
 
 
 class Topic(models.Model):
@@ -28,10 +28,10 @@ class Topic(models.Model):
     def __str__(self):
         return self.name
 
-    # def get_absolute_url(self):
-    #     return reverse('topic', kwargs={'topic_slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('topic', kwargs={'topic_slug': self.slug})
 
-    # class Meta:
-    #     verbose_name = 'Тема'
-    #     verbose_name_plural = 'Темы'
+    class Meta:
+        verbose_name = 'Тема'
+        verbose_name_plural = 'Темы'
 

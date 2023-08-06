@@ -1,5 +1,6 @@
 <!doctype html>
 {% load static %}
+{% load blog_tags %}
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
@@ -12,6 +13,19 @@
   <body>
 
     {% include 'blog/navbar.html' %}
+
+        <div class="sidebar">
+          <div class="categories">
+                  <ul class="categories__list">
+                    {% if topic_selected == 0 %}
+                      <li class="categories__item">Все темы</li>
+                    {% else %}
+                      <li class="categories__item"><a href="{% url 'index' %}">Все темы</a></li>
+                    {% endif %}
+                    {% show_topics topic_selected=topic_selected %}
+                  </ul>
+          </div>
+        </div>
 
         {% block content %}
         {% endblock %}

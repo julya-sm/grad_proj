@@ -1,0 +1,9 @@
+{% for t in topics %}
+
+{% if t.pk == topic_selected %}
+    <li class="categories__item">{{ t.name }}</li>
+{% else %}
+    <li class="categories__item"><a href="{{ c.get_absolute_url }}">{{ t.name }}</a></li>
+{% endif %}
+
+{% endfor%}

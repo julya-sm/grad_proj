@@ -14,23 +14,30 @@
 
     {% include 'blog/navbar.html' %}
 
+    <main class="main">
+
+	<div class="container">
+		<div class="main__wrapper">
+
+        {% block content %}
+        {% endblock %}
+
         <div class="sidebar">
           <div class="categories">
                   <ul class="categories__list">
                     {% if topic_selected == 0 %}
-                      <li class="categories__item">Все темы</li>
+                      <li class="selected__item">Все темы</li>
                     {% else %}
                       <li class="categories__item"><a href="{% url 'index' %}">Все темы</a></li>
                     {% endif %}
                     {% show_topics topic_selected=topic_selected %}
                   </ul>
-          </div>
+            </div>
+            </div>
         </div>
+	</div>
+</main>
 
-        {% block content %}
-        {% endblock %}
-
-
-  </body>
+</body>
 
 </html>

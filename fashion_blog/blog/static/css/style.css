@@ -264,14 +264,22 @@ svg {
     margin-bottom: 12px;
 }
 
-.categories__item a {
+.selected__item, .categories__item a {
     font-family: 'Helvetica Neue', 'Arial', sans-serif;
     font-weight: 700;
     font-size: 14px;
     line-height: 20px;
-    color: #E2EDE9;
     padding: 5px 24px;
 }
+
+.categories__item a {    
+    color: #E2EDE9;
+}
+
+.selected__item {
+    color: #4BB79E;
+}
+
 
 .articles__list {
     display: grid;
@@ -522,4 +530,10 @@ svg {
 
 .modal__body .button {
     margin-top: 24px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
 }

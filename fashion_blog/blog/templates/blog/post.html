@@ -2,21 +2,13 @@
 {% load static%}
 {% block content %}
 
-	  <main class="main">
-
-	  <div class="container">
-		  <div class="main__wrapper">
-
 			  <div class="main__content">
 				  <div class="page-article">
 					  <div class="page-article__wrapper">
-						  <h1>{{ title }}</h1>
-						  <p>Текст тут</p>
+						  <h1>{{ post.title }}</h1>
+						  {{ post.content|linebreaks }}
 					  </div>
 				  </div>
 			  </div>
-		  </div>
-	  </div>
-  </main>
 
 {% endblock %}

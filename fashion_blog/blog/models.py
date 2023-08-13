@@ -32,7 +32,7 @@ class Topic(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('topic', kwargs={'topic_slug': self.slug})
+        return reverse('top', kwargs={'top_slug': self.slug})
 
     class Meta:
         verbose_name = 'Тема'

@@ -2,10 +2,6 @@
 {% load static%}
 {% block content %}
 
-<main class="main">
-
-	<div class="container">
-		<div class="main__wrapper">
 
 			<div class="main__content">
 				<div class="articles">
@@ -43,12 +39,16 @@
 									</div>
 
 									<div class="article__right">
+										{% if p.photo %}
+										<a href="{{ p.get_absolute_url }}">
 										<img
-												src="{% static 'images/history.png' %}"
+												src="{{ p.photo.url }}"
 												width={112}
 												height={112}
 												alt="{{ p.topic }}"
 										/>
+										</a>
+										{% endif %}
 									</div>
 								</div>
 								<div class="article__bottom">
@@ -64,9 +64,7 @@
 					</ul>
 				</div>
 			</div>
-		</div>
-	</div>
-</main>
+
 
 {% endblock %}
 

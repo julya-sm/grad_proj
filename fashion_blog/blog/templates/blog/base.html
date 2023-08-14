@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="shortcut icon" href="{% static 'images/favicon.ico' %}" type="image/x-icon" />
-    <title>{{ title }}: Мода + история</title>
+    <title>{{ title }} | Мода + история</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
   </head>
   <body>
@@ -22,6 +22,8 @@
         {% block content %}
         {% endblock %}
 
+
+
         <div class="sidebar">
           <div class="categories">
                   <ul class="categories__list">
@@ -30,7 +32,17 @@
                     {% else %}
                       <li class="categories__item"><a href="{% url 'index' %}">Все темы</a></li>
                     {% endif %}
-                    {% show_topics topic_selected=topic_selected %}
+
+                    {% for t in topics %}
+                        {% if t.blog__count > 0 %}
+                            {% if t.pk == topic_selected %}
+                                <li class="selected__item">{{ t.name }}</li>
+                            {% else %}
+                                <li class="categories__item"><a href="{{ t.get_absolute_url }}">{{ t.name }}</a></li>
+                            {% endif %}
+                      {% endif %}
+
+                    {% endfor%}
                   </ul>
             </div>
             </div>

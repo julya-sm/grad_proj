@@ -1,5 +1,6 @@
 from django import forms
 from .models import *
+from django.core.exceptions import ValidationError
 
 
 class AddPostForm(forms.ModelForm):
@@ -15,3 +16,10 @@ class AddPostForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['topic'].empty_label = 'Тема не выбрана'
+
+    def clean_title(self):
+        title = self.cleaned_data['title']
+        if len(title) > 100:
+            raise ValidationError('Заголовок длиннее 100 символов')
+
+        return title

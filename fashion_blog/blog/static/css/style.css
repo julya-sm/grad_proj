@@ -537,3 +537,25 @@ svg {
     padding: 10px;
     box-sizing: border-box;
 }
+
+.page__list {
+    display: flex;    
+    justify-content: center;
+    list-style: none;
+}
+
+.page__list .page__num__selected {    
+    color: #4BB79E;    
+}
+
+.page__num {
+    background-color: #12463A;
+    padding: 15px 20px;    
+    border-radius: 50%;
+    margin: 6px;
+    font-weight: bold;
+}
+
+.page__list a {    
+    color: #E2EDE9;    
+}

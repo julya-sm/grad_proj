@@ -5,8 +5,11 @@
 			  <div class="main__content">
 				  <div class="page-article">
 					  <div class="page-article__wrapper">
-						  <h1>{{ post.title }}</h1>
+						  <h1>{{ post.title}}</h1>
 						  {{ post.content|linebreaks }}
+<!--						  {% if post.inner_image %}-->
+<!--						  <img src="{{ post.inner_image.url }}" class="image">-->
+<!--						  {% endif %}-->
 					  </div>
 				  </div>
 			  </div>

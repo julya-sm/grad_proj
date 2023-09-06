@@ -7,6 +7,17 @@ from .utils import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'blog/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        t_def = self.get_user_context(title='Страница регистрации')
+        return dict(list(context.items()) + list(t_def.items()))
+
+
 class BlogHome(DataMixin, ListView):
     model = Blog
     template_name = 'blog/index.html'

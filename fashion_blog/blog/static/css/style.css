@@ -188,7 +188,7 @@ svg {
     font-size: 16px !important;
     line-height: 22px !important;
     letter-spacing: 0.01em !important;
-    color: #000000 !important;
+    color: #E2EDE9 !important;
 }
 
 .button {
@@ -532,10 +532,14 @@ svg {
     margin-top: 24px;
 }
 
-.form-input {
+.form-input, #id_username, #id_password {
     width: 100%;
     padding: 10px;
     box-sizing: border-box;
+}
+
+#id_topic {    
+    padding: 4px;
 }
 
 .page__list {

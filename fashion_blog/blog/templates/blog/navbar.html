@@ -23,30 +23,28 @@
 		  </div>
 
 		  <div class="header__nav">
-			  <div class="header__nav-item">
-				  <button
-						  class="header__nav-btn"
-						  type="button"
-				  >
-					  Войти
-				  </button>
-			  </div>
+			  {% if request.user.is_authenticated %}
 			  <div class="header__nav-item">
 				  <button
 					  type="button"
 					  class="header__nav-btn"
 				  >
-					  Выйти
+					  {{ user.username }} | <a href="{% url 'logout' %}">Выйти</a>
 				  </button>
 			  </div>
+
+			  {% else %}
 			  <div class="header__nav-item">
 				  <button
 						  class="header__nav-btn"
 						  type="button"
 				  >
-					  <a href="/register">Регистрация</a>
+					  <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a>
 				  </button>
 			  </div>
+
+			  {% endif %}
+
 			  <div class="header__nav-item">
 				  <a
 					  class="button"

@@ -19,7 +19,7 @@ class RegisterUserForm(UserCreationForm):
 class AddPostForm(forms.ModelForm):
     class Meta:
         model = Blog
-        fields = ['title', 'slug', 'content', 'photo', 'is_published', 'topic']
+        fields = ['title', 'slug', 'content', 'photo', 'topic']
         widgets = {
             'title': forms.TextInput(attrs={'class': 'form-input'}),
             'slug': forms.TextInput(attrs={'class': 'form-input'}),

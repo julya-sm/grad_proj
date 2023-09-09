@@ -6,7 +6,7 @@
 				  <div class="page-article">
 					  <div class="page-article__wrapper">
 						  <h1>{{ post.title}}</h1>
-						  {{ post.content|linebreaks }}
+						  {{ post.content|safe }}
 <!--						  {% if post.inner_image %}-->
 <!--						  <img src="{{ post.inner_image.url }}" class="image">-->
 <!--						  {% endif %}-->

@@ -39,20 +39,34 @@
 						  class="header__nav-btn"
 						  type="button"
 				  >
-					  <a href="{% url 'register' %}">Регистрация</a> | <a href="{% url 'login' %}">Войти</a>
+					  <a href="{% url 'register' %}">Регистрация</a>
 				  </button>
 			  </div>
 
 			  {% endif %}
 
+			  {% if request.user.is_authenticated %}
+
 			  <div class="header__nav-item">
 				  <a
 					  class="button"
-					  href="/add_page"
+					  href="{% url 'add_page' %}"
 				  >
 					  Добавить статью
 				  </a>
 			  </div>
+			  {% else %}
+			  <div class="header__nav-item">
+				  <a
+					  class="button"
+					  href="{% url 'login' %}"
+				  >
+					  Войдите в систему
+				  </a>
+			  </div>
+
+
+			  {% endif %}
 		  </div>
 	  </div>
 

@@ -50,7 +50,7 @@ class BlogHome(DataMixin, ListView):
         return Blog.objects.filter(is_published=True).select_related('topic')
 
 
-class ShowPost(DataMixin, DetailView):
+class ShowPost(ViewCountMixin, DataMixin, DetailView):
     model = Blog
     template_name = 'blog/post.html'
     slug_url_kwarg = 'post_slug'

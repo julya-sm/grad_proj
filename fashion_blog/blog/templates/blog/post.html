@@ -7,9 +7,21 @@
 					  <div class="page-article__wrapper">
 						  <h1>{{ post.title}}</h1>
 						  {{ post.content|safe }}
-<!--						  {% if post.inner_image %}-->
-<!--						  <img src="{{ post.inner_image.url }}" class="image">-->
-<!--						  {% endif %}-->
+						  <div class="views">
+												<svg width="16" height="16" viewBox="0 0 16 16">
+													<g clip-path="url(#clip0_288_3893)">
+														<path d="M7.99991 12.5C5.10868 12.5 2.61179 10.6559 1.53662 8C2.61179 5.34413 5.10868 3.5 7.99991 3.5C10.8941 3.5 13.3881 5.34402 14.4632 7.99999C13.388 10.6559 10.8911 12.5 7.99991 12.5Z" stroke="#88857E" fill="none"/>
+														<circle cx="8" cy="8" r="2.5" stroke="#88857E" fill="none"/>
+													</g>
+													<defs>
+														<clipPath id="clip0_288_3893">
+															<rect width="16" height="16" fill="none"/>
+														</clipPath>
+													</defs>
+												</svg>
+												<span class="visually-hidden">Просмотрено</span>
+												<span class="views__num">{{ object.viewers.count }}</span>
+											</div>
 					  </div>
 				  </div>
 			  </div>

@@ -1,5 +1,11 @@
 from django.db import models
 from django.urls import reverse
+from django.contrib.auth.models import User
+
+
+class ViewCount(models.Model):
+    ipaddress = models.GenericIPAddressField(blank=True, null=True, verbose_name='IP адрес')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
 
 class Blog(models.Model):
@@ -12,6 +18,7 @@ class Blog(models.Model):
     time_update = models.DateTimeField(auto_now=True, verbose_name='Дата обновления')
     is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
     topic = models.ForeignKey('Topic', on_delete=models.PROTECT, verbose_name='Тема')
+    viewers = models.ManyToManyField(ViewCount, verbose_name='Просмотры')
 
     def __str__(self):
         return self.title

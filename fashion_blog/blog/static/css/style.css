@@ -421,9 +421,9 @@ svg {
     margin-bottom: 32px;
 }
 
+/* Заготовка для модалки */
 
-
-.modal {
+/* .modal {
     display: none;
     position: fixed;
     top: 0;
@@ -530,7 +530,7 @@ svg {
 
 .modal__body .button {
     margin-top: 24px;
-}
+} */
 
 .form-input, #id_username, #id_password {
     width: 100%;

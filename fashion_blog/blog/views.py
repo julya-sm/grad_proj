@@ -8,6 +8,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth import login
+from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
 
 
 class LoginUser(DataMixin, LoginView):
@@ -88,3 +89,23 @@ class AddPage(LoginRequiredMixin, DataMixin, CreateView):
         context = super().get_context_data(**kwargs)
         t_def = self.get_user_context(title='Добавление статьи')
         return dict(list(context.items()) + list(t_def.items()))
+
+
+class PostSearchView(DataMixin, ListView):
+    model = Blog
+    context_object_name = 'posts'
+    paginate_by = 10
+    allow_empty = True
+    template_name = 'blog/index.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('do')
+        search_vector = SearchVector('content', weight='A') + SearchVector('title', weight='A')
+        search_query = SearchQuery(query)
+        return self.model.objects.annotate(rank=SearchRank(search_vector, search_query))\
+            .filter(rank__gte=0.3).order_by('-rank')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = f'Результаты поиска: {self.request.GET.get("do")}'
+        return context

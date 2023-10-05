@@ -12,14 +12,13 @@
 		  </a>
 
 		  <div class="header__middle">
+				<form role="search" method="get" action="{% url 'search' %}">
 			  <div class="header__search">
 				  <label>
-					  <input
-						  type="text"
-						  placeholder="Поиск"
-					  />
+					  <input type="text" placeholder="Поиск" name="do" id="search">
 				  </label>
 			  </div>
+			</form>
 		  </div>
 
 		  <div class="header__nav">
